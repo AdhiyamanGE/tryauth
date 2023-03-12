@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      {% for expu in d2 %}
+      <tr>
+        <th>{{expu.booked_by}}</th>
+        <th>{{expu.admno}}</th>
+        <th>{{expu.email}}</th>
+        <th>{{expu.l_type}}</th>
+        <th>{{expu.l_datefrom}}</th>
+        <th>{{expu.l_dateto}}</th>
+        <th>{{expu.l_rsn}}</th>
+        <th>{{expu.permit_allowed}}</th>
+        {% if expu.closed == False %}
+        <th>Open</th>
+        {% else %}
+        <th>Closed</th>
+        {% endif %} {% if expu.closed == False %}
+        <th>
+          <a href="{% url 'editval' True %}"> Close </a>
+        </th>
+        {% endif %}
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

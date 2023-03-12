@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Profile</title>
+  </head>
+  <body>
+    <div id="menubar">
+      <ul>
+        <li><a href="https://www.svce.ac.in/">Home </a></li>
+        <li>
+          <a href="https://www.svce.ac.in/academics/academic-departments/"
+            >Academic</a
+          >
+        </li>
+        <li>Examination</li>
+        <li><a href="{% url 'home' %}">Hostel </a></li>
+        <li>E-Learning</li>
+        <li>Contact us</li>
+        <li><a href="">About us </a></li>
+        <li><a href="{% url 'profile' %}">Profile </a></li>
+      </ul>
+    </div>
+
+    <!-- <div class="v4_22" >
+            <span class="v4_16">NAME:</span>
+            <span class="v4_17">REGISTRATION NO:</span>
+            <span class="v4_18">DEPARTMENT:</span>
+            <span class="v4_19">BATCH:</span><span class="v4_20">DOB:</span>
+        </div> -->
+
+    <!-- <div class="form-cloumn" align="center" style="padding-top: 05%;">
+            <div class="forum-details">
+                <label for="details">Student Name:</label>
+                <span id="student-name-holder">YET TO ENTER</span>
+            </div>
+            <div class="forum-details">
+                <label for="details">Registration Number:</label>
+                <span id="Registration-holder">YET TO ENTER</span>
+            </div>
+            <div class="forum-details">
+                <label for="details">Department:</label>
+                <span id="Department-holder">YET TO ENTER</span>
+            </div>
+            <div class="forum-details">
+                <label for="details">Batch:</label>
+                <span id="Batch-holder">YET TO ENTER</span>
+            </div>
+        </div>   -->
+    <section id="details">
+      <div class="card-body pt-0" aligin="center">
+        <table class="table table-bordered" align="center">
+          <tr>
+            <th width="30%">Name</th>
+            <td width="2%">:</td>
+            <td>{{x.name}}</td>
+          </tr>
+          <tr>
+            <th width="30%">Admission Number</th>
+            <td width="2%">:</td>
+            <td>{{x.admno}}</td>
+          </tr>
+          <tr>
+            <th width="30%">Department</th>
+            <td width="2%">:</td>
+            <td>{{x.branch}}</td>
+          </tr>
+          <tr>
+            <th width="30%">Year</th>
+            <td width="2%">:</td>
+            <td>{{x.year}}</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section id="apply-form" align="center" style="margin: 5%">
+      <div id="forms">
+        <table cellspacing="2" align="center" cellpadding="10" border="2">
+          <tr>
+            <td align="right">
+              <a href="{% url 'home' %}"> APPLY </a>
+            </td>
+            <td>Status:{{x.permit_allowed}}</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+  </body>
+</html>
+
+<style>
+  #menubar {
+    width: 810px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    height: auto;
+  }
+
+  ul {
+    text-transform: uppercase;
+    text-align: left;
+    display: inline;
+    margin: 0;
+    padding: 15px 4px 17px 0;
+    list-style: none;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  }
+  ul li {
+    font: bold 12px/18px sans-serif;
+    display: inline-block;
+    margin-right: -5px;
+    position: relative;
+    padding: 15px 20px;
+    background: #f7f7f7;
+    color: #f06107;
+    cursor: pointer;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+  ul li:hover {
+    background: #0634b3;
+    color: #f7f7f7;
+  }
+  ul li a {
+    color: #f06107;
+  }
+
+  .student-profile .table th,
+  .table td {
+    margin-top: 5%;
+    font-size: 24px;
+    padding: 5px 10px;
+    color: #000;
+  }
+
+  #details {
+    margin-top: 5%;
+    margin-left: 25%;
+  }
+
+  /*   .v4_22 {
+        position: relative;
+        
+    }
+   
+    .v4_16 {
+        width: 100px;
+        color: rgba(0,0,0,1);
+        position: absolute;
+        top: 0px;
+        left: 308px;
+        font-family: Sedan SC;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: left;
+    }
+    .v4_17 {
+        width: 300px;
+        color: rgba(0,0,0,1);
+        position: absolute;
+        top: 58px;
+        left: 308px;
+        font-family: Sedan SC;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: left;
+    }   
+    .v4_18 {
+        width: 287px;
+        color: rgba(0,0,0,1);
+        position: absolute;
+        top: 116px;
+        left: 308px;
+        font-family: Sedan SC;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: left;
+    }
+    .v4_19 {
+        width: 154px;
+        color: rgba(0,0,0,1);
+        position: absolute;
+        top: 174px;
+        left: 308px;
+        font-family: Sedan SC;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: left;
+    }
+    .v4_20 {
+        width: 103px;
+        color: rgba(0,0,0,1);
+        position: absolute;
+        top: 232px;
+        left: 308px;
+        font-family: Sedan SC;
+        font-weight: Regular;
+        font-size: 24px;
+        opacity: 1;
+        text-align: left;
+    }      */
+</style>

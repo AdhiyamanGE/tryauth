@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Hosterller's Pass Application Form</title>
+    {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+</head> 
+<body>
+    <div id="menubar">
+        <ul><li><a href="https://www.svce.ac.in/">Home </a></li>
+            <li><a href="https://www.svce.ac.in/academics/academic-departments/">Academic</a></li>
+            <li>Examination</li>
+            <li><a href="{% url 'home' %}">Hostel </a></li>
+            <li>E-Learning</li>
+            <li>Contact us</li>
+            <li><a href="">About us </a></li>
+            <li><a href="{% url 'profile' %}">Profile </a></li>
+        </ul> 
+    </div>
+    
+<form method="post">
+    {% csrf_token %}
+    <div id="OD application form">
+{% if messages %}
+{% for message in messages %}
+<div class = "alert alert-danger alert-dismissible fade show" id = "box1">  
+<button type = "button" class = "btn-close" data-bs-dismiss = "alert" id = "close"></button>  
+<b> {{message}} </b>  
+</div>  
+{% endfor %}
+{% endif %}
+    <table cellspacing="2" align="center" cellpadding="8" border="0">
+        <tr>
+            <td>
+                Hosterller's Pass Form for XYZ University
+            </td>
+        </tr>
+
+        <tr>
+            <td align="right">
+                Name:
+            </td>
+            <td>
+                <input type="text" placeholder="Name" name="N_ame">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                Admission number:      
+            </td>
+            <td>
+                <input type="text,number" placeholder="Admission number" name="admisno">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                Email:
+            </td>
+            <td>
+                <input type="mail" placeholder="Email" name="e_mail">
+            </td>
+        </tr>
+	<tr>
+            <td align="right">
+                Email of the Parent:
+            </td>
+            <td>
+                <input type="mail" placeholder="Email" name="pe_mail">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                Phone number:
+            </td>
+            <td>
+                <select>
+                    <option>Please select</option>
+                    <option>+91</option>
+                </select>
+                <input type="Phone" placeholder="Phone number" name="phone" maxlength="10">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                Phone number of a Parent:
+            </td>
+            <td>
+                <select>
+                    <option>Please select</option>
+                    <option>+91</option>
+                </select>
+                <input type="Phone" placeholder="Phone number" name="parphone" maxlength="10">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                Gender:
+            </td>
+            <td>
+                <input type="radio" name="Gender" value="Male">Male
+                <input type="radio" name="Gender" value="Female">Female
+                <input type="radio" name="Gender" value="Others">Others
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                Branch:
+            </td>
+            <td>
+                <input type="radio" name="Branch" value="CSE">CSE
+                <input type="radio" name="Branch" value="ECE">ECE
+                <input type="radio" name="Branch" value="EEE">EEE
+                <input type="radio" name="Branch" value="BioTech">BioTech
+                <input type="radio" name="Branch" value="Mech">Mech
+                <input type="radio" name="Branch" value="AI">AI
+                <input type="radio" name="Branch" value="Marine">Marine
+            <td>
+        </tr>
+        <tr>
+            <td align="right">
+                Year:
+            </td>
+            <td>
+                <select name="ye_ar">
+                    <option>I</option>
+                    <option>II</option>
+                    <option>III</option>
+                    <option>IV</option>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                Pass Type:  
+            </td>
+            <td>
+                <select name="type">
+                    <option>Please Select</option>
+                    <option>Stay Pass</option>
+                    <option>Day-Pass</option>
+                    <option>Special_Pass</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                Pass date:
+            </td>
+            <td>
+                <input type="date" placeholder="from" name="datef"><input type="date" placeholder="to" name="datet">
+            </td>
+        </tr>
+        <tr>
+            <td align="right">
+                Pass reason:
+            </td>
+            <td>
+                <input type="text" placeholder="Reason" rows="8" cols="80" name="resn">
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="reset" value="Clear Form" onclick="clearFunc()" id="res" class="btn" />
+                <input type="submit" value="Apply" class="btn1" onclick="Apply()" />
+            </td>
+        </tr>
+        
+    </table>
+    </div>
+</form>
+
+</body>
+</html>
+<style>
+     
+    #menubar{width:810px; margin-left:auto;  margin-right:auto; margin-top:0px; height:auto;}
+    ul {
+      text-transform:uppercase;
+      text-align: left;
+      display: inline;
+      margin: 0;
+      padding: 15px 4px 17px 0;
+      list-style: none;
+      -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+    }
+    ul li {
+      font: bold 12px/18px sans-serif;
+      display: inline-block;
+      margin-right: -5px;
+      position: relative;
+      padding: 15px 20px;
+      background: #f7f7f7;
+      color:#f06107;
+      cursor: pointer;
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      -ms-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      transition: all 0.2s;
+    }
+    ul li:hover {
+      background: #0634b3;
+      color: #f7f7f7;
+      }
+    ul li a{
+        color: #f06107
+    }
+    body
+    {
+	    margin:0px;
+	    background-color:#ffffff;
+	    background-image:url(image/background.jpg);
+	    color:#0a0a0a;   /*#151f17*/
+	    font-family:Arial, Helvetica, sans-serif;
+    }
+    
+    #main{width:600px; height:auto; overflow:hidden; padding-bottom:20px; margin-left:auto; margin-right:auto; 
+    border-radius:5px; padding-left:10px; margin-top:1px; border-top:3px double #0f0f0f; 
+    border-bottom:3px double #0a0a0a; padding-top:20px;
+    }
+    
+    #main table{font-family:"Comic Sans MS", cursive;}
+    #main .tb{height:28px; width:230px; border:1px solid #2f95e9; color:#2f8cf7; font-weight:bold; border-left:5px solid #f7f7f7; opacity:0.9;}
+    
+    #main .tb:focus{height:28px; border:1px solid #488aec; outline:none; border-left:5px solid #f7f7f7;}
+
+    #main .btn{width:150px; height:32px; outline:none;  color:#f7f7f7; font-weight:bold; border:0px solid #45a7e7; 
+    text-shadow: 0px 0.5px 0.5px #fff; border-radius: 2px; font-weight: 600; color: #55a6f1; letter-spacing: 1px; 
+    font-size:14px; background-color:#f1f1f1; -webkit-transition: 1s; -moz-transition: 1s; transition: 1s;}
+  
+    #main .btn:hover{background-color:#46abd3; outline:none;  border-radius: 2px; color:#f1f1f1; border:1px solid #f1f1f1;
+    -webkit-transition: 1s; -moz-transition: 1s; transition: 1s; }
+</style>
+
+<script>
+
+    function clearFunc(){
+        let btnClear = document.querySelector('btn');
+        let inputs = document.querySelectorAll('input');
+        btnClear.addEventListener('click', () => {
+            inputs.forEach(input =>  input.value = '');
+         });
+    }
+   
+</script>
+
